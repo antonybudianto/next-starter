@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
 
       <div className="px-4 sm:px-6 md:px-8">
-        <div className="">
+        <div className="text-center">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-8 mb-8 sm:mt-14 sm:mb-10">
             Welcome
           </h1>
