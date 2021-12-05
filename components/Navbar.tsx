@@ -10,10 +10,9 @@ const signOut = () => {
   window.location.reload();
 };
 
-function Navbar(props) {
+function Navbar() {
   const { user } = useUser();
   const [open, setOpen] = useState(false);
-  console.log(user);
   return (
     <nav className="bg-gray-800">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -175,17 +174,18 @@ function Navbar(props) {
                   </div>
                   {user ? (
                     <>
+                      <Link href="/dashboard">
+                        <a
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="user-menu-item-1"
+                        >
+                          Dashboard
+                        </a>
+                      </Link>
                       <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
-                        role="menuitem"
-                        tabIndex={-1}
-                        id="user-menu-item-1"
-                      >
-                        Settings
-                      </a>
-                      <a
-                        href="#"
+                        href="#?"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
                         role="menuitem"
                         tabIndex={-1}

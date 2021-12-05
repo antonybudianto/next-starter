@@ -16,34 +16,36 @@ const signInGoogle = () => {
     .then(() => {});
 };
 
-function Login(props) {
+function Login() {
   return (
     <CustomRoute redirectAuth="/">
-      <div className="bg-gray-50 h-screen">
-        <Head>
-          <title>Login</title>
-        </Head>
-        <Navbar />
-        <div className="container mx-auto px-16 pt-12 pb-20 bg-white">
-          <h1 className="font-extrabold text-4xl text-gray-600 py-5">
-            Sign-in{" "}
-          </h1>
-          <p className="lead text-gray-700">
-            Sign-in for free and access your notes anywhere.
-          </p>
-          <div className="mt-5">
-            <button
-              onClick={signInGoogle}
-              type="button"
-              className="border shadow bg-white px-5 py-2 flex align-center justify-center"
-            >
-              <FaGoogle className="mt-1" />{" "}
-              <span className="ml-2"> Sign in using Google</span>
-            </button>
+      {() => (
+        <div className="bg-gray-50 h-screen">
+          <Head>
+            <title>Login</title>
+          </Head>
+          <Navbar />
+          <div className="container mx-auto px-16 pt-12 pb-20 bg-white">
+            <h1 className="font-extrabold text-4xl text-gray-600 py-5">
+              Sign-in{" "}
+            </h1>
+            <p className="lead text-gray-700">
+              Sign-in for free and access your notes anywhere.
+            </p>
+            <div className="mt-5">
+              <button
+                onClick={signInGoogle}
+                type="button"
+                className="border shadow bg-white px-5 py-2 flex align-center justify-center"
+              >
+                <FaGoogle className="mt-1" />{" "}
+                <span className="ml-2"> Sign in using Google</span>
+              </button>
+            </div>
           </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      )}
     </CustomRoute>
   );
 }

@@ -18,7 +18,7 @@ interface CustomRouteProp {
 }
 
 function CustomRoute({
-  children,
+  children: Cmp,
   redirectAuth,
   redirectNoAuth,
   skipLoading,
@@ -39,7 +39,7 @@ function CustomRoute({
     return null;
   }
 
-  return children;
+  return <Cmp />;
 }
 
 export default CustomRoute;
