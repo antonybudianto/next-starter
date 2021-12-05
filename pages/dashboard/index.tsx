@@ -1,24 +1,79 @@
 import Head from "next/head";
 import Link from "next/link";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 import CustomRoute from "../../components/CustomRoute";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { useUser } from "../../context/auth";
-import { getTier } from "../../utils/user";
+import {
+  checkUsername,
+  getTier,
+  getUsername,
+  saveUsername,
+} from "../../utils/user";
 
 function DashboardIndex() {
-  const { user } = useUser();
-
-  const handleSubmit = useCallback(() => {
-    alert("a");
-  }, []);
-
   return (
     <CustomRoute redirectNoAuth="/login">
       {() => {
+        const { user } = useUser();
         const tier = getTier(user);
         const expireDate = new Date(user.__user.membershipExpireDate);
+
+        const [loading, setLoading] = useState(true);
+        const [username, setUsername] = useState("");
+        const [usernameErr, setUsernameErr] = useState("");
+        const [success, setSuccess] = useState("");
+
+        const handleChangeUsername = (e) => {
+          setUsername(e.target.value);
+        };
+
+        const loadUsername = async () => {
+          try {
+            const res = await getUsername(user);
+            if (res && res.data) {
+              setUsername(res.data.username);
+              // @ts-ignore
+              window.__username = res.data.username;
+            }
+          } catch (e) {
+            console.error(e);
+          }
+          setLoading(false);
+        };
+
+        const handleSubmit = useCallback(
+          async (e) => {
+            e.preventDefault();
+            setSuccess("");
+            setUsernameErr("");
+            setLoading(true);
+            try {
+              const available = await checkUsername(username);
+              if (available) {
+                await saveUsername(user, username);
+                // @ts-ignore
+                window.__username = username;
+                setSuccess("Account is saved!");
+                // @ts-ignore
+              } else if (window.__username !== username) {
+                setUsernameErr("Username is not available");
+              } else {
+                setUsernameErr("This is your current username");
+              }
+            } catch (e) {
+              console.error(e);
+            }
+            setLoading(false);
+          },
+          [username]
+        );
+
+        useEffect(() => {
+          loadUsername();
+        }, []);
 
         console.log(tier);
         return (
@@ -99,16 +154,35 @@ function DashboardIndex() {
                                       type="text"
                                       name="username"
                                       id="username"
+                                      autoComplete="off"
+                                      disabled={loading}
+                                      value={username}
+                                      onChange={handleChangeUsername}
                                       className="px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     />
+                                    <div
+                                      className={`text-xs pt-2  h-1 ${
+                                        success
+                                          ? "text-green-700"
+                                          : "text-red-700"
+                                      }`}
+                                    >
+                                      {success ? success : usernameErr}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                               <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                 <button
                                   type="submit"
-                                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                  disabled={loading}
+                                  className="inline-flex justify-center items-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
                                 >
+                                  {loading ? (
+                                    <FaSpinner className="icon-spin mr-1" />
+                                  ) : (
+                                    ""
+                                  )}{" "}
                                   Save
                                 </button>
                               </div>
