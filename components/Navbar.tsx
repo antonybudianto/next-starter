@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import { FaUser } from "react-icons/fa";
 import { useUser } from "../context/auth";
 
 const signOut = () => {
@@ -140,11 +141,16 @@ function Navbar(props) {
                   onClick={() => setOpen((o) => !o)}
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  <div className="h-8 w-8 rounded-full text-white flex justify-center items-center">
+                    <div>
+                      <FaUser size={20} />
+                    </div>
+                  </div>
+                  {/* <img
                     className="h-8 w-8 rounded-full"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
-                  />
+                  /> */}
                 </button>
               </div>
 
@@ -156,20 +162,19 @@ function Navbar(props) {
                   aria-labelledby="user-menu-button"
                   tabIndex={-1}
                 >
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-blue-600"
+                  <div
+                    className="block px-4 py-2 text-sm text-gray-500 cursor-auto"
                     role="menuitem"
                     tabIndex={-1}
                     id="user-menu-item-0"
                   >
                     {user ? user.displayName : "Hi, Guest"}
-                  </a>
+                  </div>
                   {user ? (
                     <>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
                         role="menuitem"
                         tabIndex={-1}
                         id="user-menu-item-1"
@@ -178,7 +183,7 @@ function Navbar(props) {
                       </a>
                       <a
                         href="#"
-                        className="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
                         role="menuitem"
                         tabIndex={-1}
                         id="user-menu-item-2"
@@ -191,7 +196,7 @@ function Navbar(props) {
                     <>
                       <a
                         href="/login"
-                        className="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
                         role="menuitem"
                         tabIndex={-1}
                         id="user-menu-item-2"

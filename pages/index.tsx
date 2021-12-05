@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
                 Get started
               </a>
               <a
-                className="w-full sm:w-auto flex-none bg-pink-400 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
+                className="w-full sm:w-auto flex-none bg-purple-400 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
                 href="/docs"
               >
                 View demo
@@ -37,6 +38,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

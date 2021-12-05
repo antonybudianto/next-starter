@@ -1,0 +1,53 @@
+import React from "react";
+
+function Footer(props) {
+  return (
+    <footer className="container w-full flex justify-evenly mx-auto py-10 border-t">
+      <div className="">
+        <img
+          className="mb-2"
+          src="/favicon.ico"
+          alt="favicon-footer"
+          width="34"
+          height="34"
+        />
+        <small className="d-block mb-3 text-gray-500">© Starter. 2022.</small>
+      </div>
+      <div className="">
+        <h5 className="text-gray-500">Resources</h5>
+        <ul className="list-unstyled">
+          <li>
+            <a
+              className="text-blue-500"
+              href="https://www.producthunt.com/posts/stickynoted"
+            >
+              Product Hunt
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div className="">
+        <h5 className="text-gray-500">About</h5>
+        <ul className="list-unstyled text-small">
+          <li>
+            <a className="text-blue-500" href="/contact">
+              Contact us
+            </a>
+          </li>
+          <li>
+            <a className="text-blue-500" href="/pricing">
+              Pricing
+            </a>
+          </li>
+          <li>
+            <a className="text-blue-500" href="/terms">
+              Privacy and Terms
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;

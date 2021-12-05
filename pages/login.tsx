@@ -6,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import Navbar from "../components/Navbar";
 import CustomRoute from "../components/CustomRoute";
+import Footer from "../components/Footer";
 
 const signInGoogle = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
@@ -23,7 +24,7 @@ function Login(props) {
           <title>Login</title>
         </Head>
         <Navbar />
-        <div className="px-20 py-10 bg-gray-50">
+        <div className="container mx-auto px-16 pt-12 pb-20 bg-gray-50">
           <h1 className="font-extrabold text-4xl text-gray-600 py-5">
             Sign-in{" "}
           </h1>
@@ -41,6 +42,7 @@ function Login(props) {
             </button>
           </div>
         </div>
+        <Footer />
       </div>
     </CustomRoute>
   );
