@@ -41,9 +41,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a className="text-blue-500" href="/terms">
-              Privacy and Terms
-            </a>
+            <Link href="/terms">
+              <a className="text-blue-500">Privacy and Terms</a>
+            </Link>
           </li>
         </ul>
       </div>
