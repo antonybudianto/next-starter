@@ -62,7 +62,7 @@ function Navbar() {
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/">
-                <div className="cursor-pointer">
+                <a className="cursor-pointer">
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src="/favicon.ico"
@@ -73,7 +73,7 @@ function Navbar() {
                     src="/logo.png"
                     alt="Workflow"
                   />
-                </div>
+                </a>
               </Link>
             </div>
             <div className="hidden flex items-center justify-center sm:block sm:ml-6">
