@@ -19,12 +19,12 @@ const signInGoogle = () => {
 function Login(props) {
   return (
     <CustomRoute redirectAuth="/">
-      <div className="bg-gray-100 h-screen">
+      <div className="bg-gray-50 h-screen">
         <Head>
           <title>Login</title>
         </Head>
         <Navbar />
-        <div className="container mx-auto px-16 pt-12 pb-20 bg-gray-50">
+        <div className="container mx-auto px-16 pt-12 pb-20 bg-white">
           <h1 className="font-extrabold text-4xl text-gray-600 py-5">
             Sign-in{" "}
           </h1>

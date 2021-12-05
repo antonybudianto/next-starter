@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 
-function Footer(props) {
+function Footer() {
   return (
     <footer className="container w-full flex justify-evenly mx-auto py-10 border-t">
       <div className="">
@@ -30,9 +31,9 @@ function Footer(props) {
         <h5 className="text-gray-500">About</h5>
         <ul className="list-unstyled text-small">
           <li>
-            <a className="text-blue-500" href="/contact">
-              Contact us
-            </a>
+            <Link href="/contact">
+              <a className="text-blue-500">Contact us</a>
+            </Link>
           </li>
           <li>
             <a className="text-blue-500" href="/pricing">
