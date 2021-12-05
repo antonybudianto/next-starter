@@ -19,7 +19,7 @@ function Footer() {
         <ul className="list-unstyled">
           <li>
             <a
-              className="text-blue-500"
+              className="text-blue-500 hover:underline"
               href="https://www.producthunt.com/posts/stickynoted"
             >
               Product Hunt
@@ -32,17 +32,17 @@ function Footer() {
         <ul className="list-unstyled text-small">
           <li>
             <Link href="/contact">
-              <a className="text-blue-500">Contact us</a>
+              <a className="text-blue-500 hover:underline">Contact us</a>
             </Link>
           </li>
           <li>
             <Link href="/pricing">
-              <a className="text-blue-500">Pricing</a>
+              <a className="text-blue-500 hover:underline">Pricing</a>
             </Link>
           </li>
           <li>
             <Link href="/terms">
-              <a className="text-blue-500">Privacy and Terms</a>
+              <a className="text-blue-500 hover:underline">Privacy and Terms</a>
             </Link>
           </li>
         </ul>

@@ -128,7 +128,24 @@ function DashboardIndex() {
                         </div>
                         <div className="mt-5 md:mt-0 md:col-span-2">
                           {tier.type === "free" ? (
-                            "Free"
+                            <div>
+                              <div>
+                                <strong>Free</strong>
+                              </div>
+                              <div className="mt-3 text-gray-500">
+                                <Link href="/pricing">
+                                  <a className="text-blue-500 hover:underline">
+                                    Upgrade
+                                  </a>
+                                </Link>{" "}
+                                your account to get:
+                                <ul className="pl-4 mt-1 list-disc">
+                                  <li>Additional workspaces</li>
+                                  <li>Custom workspace background</li>
+                                  <li>Upcoming new features</li>
+                                </ul>
+                              </div>
+                            </div>
                           ) : (
                             <div>
                               <strong>{tier.label}</strong> membership active
