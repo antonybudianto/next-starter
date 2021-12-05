@@ -10,7 +10,7 @@ function Terms() {
   return (
     <div className="bg-gray-50">
       <Head>
-        <title>Login</title>
+        <title>Terms and Condition</title>
       </Head>
       <Navbar />
       <div className="container mx-auto px-16 pt-12 pb-20 bg-white text-gray-600">

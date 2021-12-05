@@ -8,7 +8,7 @@ function Contact() {
   return (
     <div className="bg-gray-50 h-screen">
       <Head>
-        <title>Login</title>
+        <title>Contact us</title>
       </Head>
       <Navbar />
       <div className="container mx-auto px-16 pt-12 pb-20 bg-white text-gray-600">
