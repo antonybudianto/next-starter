@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useUser } from "../context/auth";
 import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import { lazyFirebaseAuth, lazyFirebaseStore } from "../utils/lazyFirebase";
 
 function AuthChecker({ children }) {
   const { user, setUser, setLoading } = useUser();
@@ -13,6 +12,7 @@ function AuthChecker({ children }) {
     }
 
     async function loadAuth() {
+      await Promise.all([lazyFirebaseAuth(), lazyFirebaseStore()]);
       firebase.auth().onAuthStateChanged(
         async (user) => {
           try {
