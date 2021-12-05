@@ -45,15 +45,15 @@ function Pricing() {
         <title>Pricing</title>
       </Head>
       <Navbar />
-      <div className="container mx-auto px-16 pt-12 pb-10 bg-white">
+      <div className="container mx-auto px-16 pt-12 pb-10 bg-white text-gray-600">
         <div className="container">
           <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center text-light">
-            <h1 className="font-extrabold text-4xl text-gray-500">Pricing</h1>
+            <h1 className="font-extrabold text-4xl text-gray-600">Pricing</h1>
             <p className="font-extrabold my-2 mb-4 text-purple-400">
               Ready for the next level?
             </p>
           </div>
-          <div className="flex flex-col lg:flex-row justify-evenly items-center mb-3 text-center text-gray-600">
+          <div className="flex flex-col lg:flex-row justify-evenly items-center mb-3 text-center">
             {TIER.map((tier, i) => (
               <div
                 key={i}
