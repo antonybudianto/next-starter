@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Hello</title>
+        <title>Home - Starter</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="absolute w-full">
