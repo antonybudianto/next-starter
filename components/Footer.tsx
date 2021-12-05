@@ -36,9 +36,9 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a className="text-blue-500" href="/pricing">
-              Pricing
-            </a>
+            <Link href="/pricing">
+              <a className="text-blue-500">Pricing</a>
+            </Link>
           </li>
           <li>
             <Link href="/terms">

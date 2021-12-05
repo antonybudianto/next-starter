@@ -11,12 +11,12 @@ function Contact() {
         <title>Login</title>
       </Head>
       <Navbar />
-      <div className="container mx-auto px-16 pt-12 pb-20 bg-white">
+      <div className="container mx-auto px-16 pt-12 pb-20 bg-white text-gray-600">
         <div className="pb-10">
           <h1 className="font-extrabold text-4xl text-gray-600 py-5">
             Contact us
           </h1>
-          <div className="text-gray-900">
+          <div>
             <p>
               If you have any inquiry about our service pricing or support,
               please email to{" "}
