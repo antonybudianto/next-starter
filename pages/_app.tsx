@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import "../styles.css";
 import firebase from "firebase/compat/app";
 import { AuthProvider } from "../context/auth";
 import AuthChecker from "../components/AuthChecker";

@@ -5,7 +5,7 @@ import { useUser } from "../context/auth";
 const GlobalLoader = () => (
   <div className="w-full flex justify-center items-center h-screen bg-white">
     <div className="text-gray-500">
-      <FaSpinner className="fa fa-spin" />
+      <FaSpinner size={30} className="text-purple-500 icon-spin" />
     </div>
   </div>
 );
