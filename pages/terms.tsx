@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 
 const APP_NAME = "Starter";
 
-function Contact() {
+function Terms() {
   return (
     <div className="bg-gray-50">
       <Head>
@@ -63,7 +63,7 @@ function Contact() {
               <h2 className="font-extrabold text-2xl text-gray-600 py-5 mt-5">
                 Terms and Conditions
               </h2>
-              <p>
+              <div>
                 <div>
                   By signing-in, you accept the following terms and Conditions
                 </div>
@@ -87,7 +87,7 @@ function Contact() {
                     background.
                   </li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
           <div className="mt-5">
@@ -100,4 +100,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Terms;
