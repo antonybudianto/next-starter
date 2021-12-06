@@ -71,7 +71,6 @@ function DashboardView() {
     loadUsername();
   }, []);
 
-  console.log(tier);
   return (
     <div className="bg-gray-50 min:h-screen">
       <Head>

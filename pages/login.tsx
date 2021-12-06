@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import { signInWithRedirect, getAuth, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 
 import Navbar from "../components/Navbar";
@@ -9,11 +8,9 @@ import CustomRoute from "../components/CustomRoute";
 import Footer from "../components/Footer";
 
 const signInGoogle = () => {
-  let provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithRedirect(provider)
-    .then(() => {});
+  let provider = new GoogleAuthProvider();
+  const auth = getAuth();
+  signInWithRedirect(auth, provider).then(() => {});
 };
 
 function Login() {

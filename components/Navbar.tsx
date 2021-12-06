@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import { signOut as firebaseSignOut, getAuth } from "firebase/auth";
 import { FaUser } from "react-icons/fa";
 import { useUser } from "../context/auth";
 import Link from "next/link";
 
 const signOut = () => {
-  firebase.auth().signOut();
+  const auth = getAuth();
+  firebaseSignOut(auth);
   window.location.reload();
 };
 

@@ -1,5 +1,16 @@
-import firebase from "firebase/compat/app";
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  where,
+  query,
+} from "firebase/firestore";
+import getFirebaseApp from "./firebase";
 
+const app = getFirebaseApp();
 const TIER = {
   free: {
     type: "free",
@@ -42,11 +53,10 @@ export async function checkUsername(username) {
 }
 
 export async function getUidByUsername(username) {
-  const db = firebase.firestore();
-  const res = await db
-    .collection("publicUsers")
-    .where("username", "==", username)
-    .get();
+  const db = getFirestore(app);
+  const colRef = collection(db, "publicUsers");
+  const qRef = query(colRef, where("username", "==", username));
+  const res = await getDocs(qRef);
   if (res.empty) {
     return null;
   }
@@ -61,8 +71,9 @@ export async function getUidByUsername(username) {
 }
 
 export async function getUsername(user) {
-  const db = firebase.firestore();
-  const res = await db.collection("publicUsers").doc(user.uid).get();
+  const db = getFirestore(app);
+  const docRef = doc(db, "publicUsers", user.uid);
+  const res = await getDoc(docRef);
   return {
     id: res.id,
     data: res.data(),
@@ -70,8 +81,10 @@ export async function getUsername(user) {
 }
 
 export async function saveUsername(user, username) {
-  const db = firebase.firestore();
-  return db.collection("publicUsers").doc(user.uid).set({
+  const db = getFirestore(app);
+  const colRef = collection(db, "publicUsers");
+  const docRef = doc(colRef, user.uid);
+  return setDoc(docRef, {
     username,
   });
 }

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useUser } from "../context/auth";
-import firebase from "firebase/compat/app";
-import { lazyFirebaseAuth, lazyFirebaseStore } from "../utils/lazyFirebase";
+import getFirebaseApp from "../utils/firebase";
 
 function AuthChecker({ children }) {
   const { user, setUser, setLoading } = useUser();
@@ -12,25 +13,31 @@ function AuthChecker({ children }) {
     }
 
     async function loadAuth() {
-      await Promise.all([lazyFirebaseAuth(), lazyFirebaseStore()]);
-      firebase.auth().onAuthStateChanged(
+      const auth = getAuth(getFirebaseApp());
+      /**
+       * @TODO still need lazy load?
+       */
+      // await Promise.all([lazyFirebaseAuth(), lazyFirebaseStore()]);
+      onAuthStateChanged(
+        auth,
         async (user) => {
           try {
-            const db = firebase.firestore();
+            const db = getFirestore(getFirebaseApp());
             let __user = {};
             if (user) {
-              const ref = db.collection("users").doc(user.uid);
-              const res = await ref.get();
-              if (res.exists) {
-                __user = res.data();
+              const docRef = doc(db, "users", user.uid);
+              const res = await getDoc(docRef);
+              if (res.exists()) {
+                __user = res.data() || { offline: true };
               }
               // @ts-ignore
-              setUser({ ...user.multiFactor.user, __user });
+              setUser({ ...user, __user });
             } else {
               setUser(null);
             }
             setLoading(false);
           } catch (e) {
+            console.error(e);
             setUser({ ...user, __user: { offline: true } });
             setLoading(false);
           }
