@@ -23,13 +23,13 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center space-y-4 sm:space-y-0 sm:space-x-4 ">
               <a
-                className="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
+                className="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 shadow-lg shadow-gray-500/50 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
                 href="/docs"
               >
                 Get started
               </a>
               <a
-                className="w-full sm:w-auto flex-none bg-purple-400 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
+                className="w-full sm:w-auto flex-none bg-purple-400 hover:bg-purple-500 shadow-lg shadow-purple-500/50 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200"
                 href="/docs"
               >
                 View demo
